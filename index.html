@@ -3,106 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Streaming</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        h1 { text-align: center; }
-        #container { display: flex; margin-bottom: 20px; }
-        #form { padding-right: 2rem; }
-        #form label { display: block; margin: 5px 0; }
-        #form input, #form select { width: 200px; padding: 5px; margin-bottom: 10px; }
-        #form button { margin-right: 10px; padding: 8px 15px; cursor: pointer; }
-        #search { padding-left: 2rem; }
-        #search input { padding: 5px; width: 150px; }
-        #search button { padding: 5px 10px; cursor: pointer; }
-        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background: #007bff; color: white; }
-        tr:nth-child(even) { background: #f2f2f2; }
-        button { padding: 5px 10px; cursor: pointer; margin-right: 5px; }
-        .edit-btn { background: #ffc107; border: none; }
-        .delete-btn { background: #dc3545; color: white; border: none; }
-        .error { color: red; font-size: 12px; margin: 5px 0; }
-        .success { color: green; font-size: 14px; margin: 10px 0; }
-    </style>
+    <title>Student</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Movie Streaming Records</h1>
-    
-    <div id="container">
-        <div id="form">
-            <h3>Add / Update Record</h3>
-            <div id="formError" class="error"></div>
-            <div id="formSuccess" class="success"></div>
+    <div class="main-wrapper">
+        <h1>Student</h1>
+       
+        <div id="container">
+            <div class="form-card">
+                <h3>Student Details</h3>
+               <input type="text" id="fname" placeholder="First Name">
+<input type="text" id="lname" placeholder="Last Name">
+<input type="text" id="age" placeholder="Age">
+<input type="text" id="course" placeholder="Course">
+<input type="text" id="gender" placeholder="Gender">
+<input type="text" id="year" placeholder="Year">
 
-            <label>User Name *</label>
-            <input type="text" id="user_name"><br>
+<input type="hidden" id="ID">
 
-            <label>Movie Title *</label>
-            <input type="text" id="movie_title"><br>
 
-            <label>Genre *</label>
-            <select id="genre">
-                <option value="">Select Genre</option>
-                <option value="Action">Action</option>
-                <option value="Animation">Animation</option>
-                <option value="Sci-Fi">Sci-Fi</option>
-                <option value="Romance">Romance</option>
-            </select><br>
+<button id="add">Add User</button>
+<button id="update">Update User</button>
 
-            <label>Subscription *</label>
-            <select id="subscription_type">
-                <option value="">Select</option>
-                <option value="Basic">Basic</option>
-                <option value="Standard">Standard</option>
-                <option value="Premium">Premium</option>
-            </select><br>
 
-            <label>Device *</label>
-            <select id="device_used">
-                <option value="">Select</option>
-                <option value="Mobile">Mobile</option>
-                <option value="TV">TV</option>
-                <option value="Laptop">Laptop</option>
-                <option value="Tablet">Tablet</option>
-            </select><br>
+<ul id="content"></ul>
 
-            <label>Rating (1-5) *</label>
-            <input type="number" id="rating" min="1" max="5"><br>
 
-            <button id="add">Add</button>
-            <button id="update">Update</button>
-            <button onclick="resetForm()">Clear</button>
-            <input type="hidden" id="record_id">
-        </div>
-
-        <div id="search">
-            <h3>Search</h3>
-            <label>Genre:</label>
-            <input type="text" id="searchBox" placeholder="e.g. Action"><br><br>
-            <button onclick="searchGenre()">Search</button>
-            <button onclick="getRecords()">Show All</button>
-        </div>
-    </div>
-
-    <h3>Records List</h3>
-    <div id="tableError" class="error"></div>
-    <table id="recordsTable">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>User</th>
-                <th>Movie</th>
-                <th>Genre</th>
-                <th>Subscription</th>
-                <th>Device</th>
-                <th>Rating</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody id="content"></tbody>
-    </table>
-
-    <script src="frontend.js"></script>
+    <script src="index.js"></script>
 </body>
 </html>
