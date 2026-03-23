@@ -13,7 +13,7 @@ function getUsers() {
             data.forEach(element => {
                 html += `
                 <li>
-                    <span>${element.first_name} ${element.last_name}</span>
+                    <span>${element.fname} ${element.lname}</span>
                     <div class="action-buttons">
                         <button type="button" onclick="updateMember(${element.id})" class="btn-edit-small">Update</button>
                         <button type="button" onclick="deleteMember(${element.id})" class="btn-delete-small">Delete</button>
