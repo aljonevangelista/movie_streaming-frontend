@@ -2,10 +2,8 @@ const content = document.querySelector("#content");
 const submit = document.querySelector('#add');
 const update = document.querySelector("#update");
 
-
-// GET ALL USERS
+// ALL USERS
 window.addEventListener('load', getUsers);
-
 
 function getUsers() {
     let html = "";
@@ -27,20 +25,16 @@ function getUsers() {
         .catch(error => console.log(error));
 }
 
-
-// POST - ADD USER
+// POST 
 submit.addEventListener('click', () => {
     let fname = document.querySelector('#fname').value;
     let lname = document.querySelector('#lname').value;
-    let age = document.querySelector('#age').value;
     let course = document.querySelector('#course').value;
-    let gender = document.querySelector('#gender').value;
     let year = document.querySelector('#year').value;
-
     if(!fname || !lname) return alert("Please fill in the names!");
 
 
-    let formData = { fname, lname, age, course, gender, year };
+    let formData = { fname, lname, course, year };
 
 
     fetch('http://localhost:7000/api/users', {
@@ -62,8 +56,7 @@ submit.addEventListener('click', () => {
     });
 });
 
-
-// DELETE USER
+// DELETE 
 function deleteMember(id) {
     if (confirm("Are you sure you want to delete this user?")) {
         fetch("http://localhost:7000/api/users", {
@@ -86,42 +79,30 @@ function deleteMember(id) {
     }
 }
 
-
 function updateMember(id) {
     fetch(`http://localhost:7000/api/users/${id}`)
         .then(response => response.json())
         .then(data => {
 
-
             const user = data[0];
-
 
             document.querySelector("#fname").value = user.first_name;
             document.querySelector("#lname").value = user.last_name;
-            document.querySelector("#age").value = user.age;
             document.querySelector("#course").value = user.course;
-            document.querySelector("#gender").value = user.gender;
             document.querySelector("#year").value = user.year;
             document.querySelector("#ID").value = user.id;
         });
 }
 
-
 update.addEventListener('click', () => {
     let fname = document.querySelector("#fname").value;
     let lname = document.querySelector("#lname").value;
-    let age = document.querySelector("#age").value;
     let course = document.querySelector("#course").value;
-    let gender = document.querySelector("#gender").value;
     let year = document.querySelector("#year").value;
     let id = document.querySelector("#ID").value;
 
-
     if (!id) return alert("Please select a user to update first!");
-
-
-    let formdata = { fname, lname, age, course, gender, year, id };
-
+    let formdata = { fname, lname, course, year, id };
 
     fetch(`http://localhost:7000/api/users`, {
         method: 'PUT',
