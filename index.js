@@ -30,17 +30,15 @@ function getUsers() {
 
 // POST - ADD USER
 submit.addEventListener('click', () => {
-    let user_name = document.querySelector('#user_name').value;
-    let movie_title = document.querySelector('#movie_title').value;
-    let genre = document.querySelector('#genre').value;
-    let subscription_type = document.querySelector('#subscription_type').value;
-    let device_used = document.querySelector('#device_used').value;
-    let rating = document.querySelector('#rating').value;
+    let fname = document.querySelector('#fname').value;
+    let lname = document.querySelector('#lname').value;
+    let course = document.querySelector('#course').value;
+    let year = document.querySelector('#year').value;
 
-    if(!user_name) return alert("Please fill in the names!");
+    if(!fname || !lname) return alert("Please fill in the names!");
 
 
-    let formData = { user_name, movie_title, genre, subscription_type, device_used, rating };
+    let formData = { fname, lname, course, year };
 
 
     fetch('http://localhost:7000/api/users', {
@@ -96,30 +94,31 @@ function updateMember(id) {
             const user = data[0];
 
 
-            document.querySelector("#user_name").value = user.first_name;
-            document.querySelector("#movie_title").value = user.movie_title;
-            document.querySelector("#genre").value = user.genre;
-            document.querySelector("#subscription_type").value = user.subscription_type;
-            document.querySelector("#device_used").value = user.device_used;
-            document.querySelector("#rating").value = user.rating;
+            document.querySelector("#fname").value = user.first_name;
+            document.querySelector("#lname").value = user.last_name;
+            document.querySelector("#age").value = user.age;
+            document.querySelector("#course").value = user.course;
+            document.querySelector("#gender").value = user.gender;
+            document.querySelector("#year").value = user.year;
             document.querySelector("#ID").value = user.id;
         });
 }
 
 
 update.addEventListener('click', () => {
-    let user_name = document.querySelector('#user_name').value;
-    let movie_title = document.querySelector('#movie_title').value;
-    let genre = document.querySelector('#genre').value;
-    let subscription_type = document.querySelector('#subscription_type').value;
-    let device_used = document.querySelector('#device_used').value;
-    let rating = document.querySelector('#rating').value;
+    let fname = document.querySelector("#fname").value;
+    let lname = document.querySelector("#lname").value;
+    let age = document.querySelector("#age").value;
+    let course = document.querySelector("#course").value;
+    let gender = document.querySelector("#gender").value;
+    let year = document.querySelector("#year").value;
+    let id = document.querySelector("#ID").value;
 
 
     if (!id) return alert("Please select a user to update first!");
 
 
-    let formdata = { user_name, movie_title, genre, subscription_type, device_used, rating, id};
+    let formdata = { fname, lname, age, course, gender, year, id };
 
 
     fetch(`http://localhost:7000/api/users`, {
