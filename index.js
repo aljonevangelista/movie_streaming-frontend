@@ -32,13 +32,15 @@ function getUsers() {
 submit.addEventListener('click', () => {
     let fname = document.querySelector('#fname').value;
     let lname = document.querySelector('#lname').value;
+    let age = document.querySelector('#age').value;
     let course = document.querySelector('#course').value;
+    let gender = document.querySelector('#gender').value;
     let year = document.querySelector('#year').value;
 
     if(!fname || !lname) return alert("Please fill in the names!");
 
 
-    let formData = { fname, lname, course, year };
+    let formData = { fname, lname, age, course, gender, year };
 
 
     fetch('http://localhost:7000/api/users', {
