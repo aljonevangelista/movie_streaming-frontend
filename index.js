@@ -86,8 +86,8 @@ function updateMember(id) {
 
             const user = data[0];
 
-            document.querySelector("#fname").value = user.first_name;
-            document.querySelector("#lname").value = user.last_name;
+            document.querySelector("#fname").value = user.fname;
+            document.querySelector("#lname").value = user.lname;
             document.querySelector("#course").value = user.course;
             document.querySelector("#year").value = user.year;
             document.querySelector("#ID").value = user.id;
