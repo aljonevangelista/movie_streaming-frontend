@@ -7,7 +7,7 @@ window.addEventListener('load', getUsers);
 
 function getUsers() {
     let html = "";
-    fetch('https://students-backend-xfsn.onrender.com/api/users', { mode: 'cors' })
+    fetch('http://localhost:7000/api/users/', { mode: 'cors' })
         .then(response => response.json())
         .then(data => {
             data.forEach(element => {
@@ -37,7 +37,7 @@ submit.addEventListener('click', () => {
     let formData = { fname, lname, course, year };
 
 
-    fetch('https://students-backend-xfsn.onrender.com/api/users', {
+    fetch('http://localhost:7000/api/users/', {
         method: 'POST',
         body: JSON.stringify(formData),
         headers: { "Content-Type": "application/json" },
@@ -80,7 +80,7 @@ function deleteMember(id) {
 }
 
 function updateMember(id) {
-    fetch(`https://students-backend-xfsn.onrender.com/api/users${id}`)
+    fetch(`http://localhost:7000/api/users/${id}`)
         .then(response => response.json())
         .then(data => {
 
@@ -104,7 +104,7 @@ update.addEventListener('click', () => {
     if (!id) return alert("Please select a user to update first!");
     let formdata = { fname, lname, course, year, id };
 
-    fetch(`https://students-backend-xfsn.onrender.com/api/users`, {
+    fetch(`http://localhost:7000/api/users/`, {
         method: 'PUT',
         body: JSON.stringify(formdata),
         headers: { "Content-Type": "application/json" },
